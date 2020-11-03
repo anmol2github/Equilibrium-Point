@@ -1,0 +1,38 @@
+//To find Equilibrium point in a given array
+import java.util.*;
+class Main{
+    public static void main(String[] args)
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter Size of Array"); //Input Size of Array
+        int n=scan.nextInt();
+        System.out.println("Enter Array Elements"); //Input Array Elements
+        int arr[]=new int[n];  //Intialize Array
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=scan.nextInt(); //Input array Elements
+        }
+        int flag=0;     //declare flag variable and assign it to zero;
+        for(int i=0;i<n;i++)
+        {
+            int sum1=0,sum2=0;    //Intialize sum1=0 and sum2=0;
+            for(int j=i+1;j<n;j++)
+            {
+              sum1+=arr[j];      //add right indices elements to sum1;
+            }
+            for(int k=0;k<i;k++)
+            {
+                sum2+=arr[k];    //add left indices elements to sum2;
+            }
+            if(sum1==sum2)
+            {
+                flag=1;          //assign flag variable to 1;
+                System.out.println("Equilibrium at "+arr[i]);
+            }
+        }
+        if(flag==0)              //if flag variable is zero;
+        {
+            System.out.println("Not Equilibrium");
+        }
+    }
+}
